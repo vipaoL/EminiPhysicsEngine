@@ -1,10 +1,13 @@
+local.properties
+
 # build artifacts and temp folders
 build/
 build_float/
-dist/
+out/
 bin/
 testreport/
 doc*/
+jar_temp/
 src_temp/
 src_float/
 
