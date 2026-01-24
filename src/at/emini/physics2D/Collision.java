@@ -803,24 +803,10 @@ public class Collision
     {
         M_lineVertices[0] = start;
         M_lineVertices[1] = end;
-        M_axis.assign(end);
-        M_axis.subtract(start);
-
-                                //#ContactPrecision M_axis.mult(64);
-        M_axis.normalize();     //#ContactPrecision M_axis.normalizePrecise();
-        M_axis.turnRight();
-
-        M_vertexPositionEstimates1 = M_lineVertexEstimates;
-        M_vertexPositionEstimates2 = b1.mVertexPositionEstimates;
-
-        if ( (face == Landscape.FACE_NONE && ! b1.mPositionFX.leftOf(start, end))
-           || face == Landscape.FACE_LEFT )
-        {
-            M_axis.mult(-1);
-        }
 
         Shape shape1;
         int startIdx1;
+        long depthFX = 0;
 
         if (b1.mShape instanceof MultiShape)
         {
@@ -835,9 +821,29 @@ public class Collision
             startIdx1  = 0;
         }
 
+        M_axis.assign(end);
+        M_axis.subtract(start);
+
+                                //#ContactPrecision M_axis.mult(64);
+        M_axis.normalize();     //#ContactPrecision M_axis.normalizePrecise();
+
+        M_vertexPositionEstimates1 = M_lineVertexEstimates;
+        M_vertexPositionEstimates2 = b1.mVertexPositionEstimates;
+
+        depthFX = intervalIntersectFX( M_lineVertices, 0, 2, b1.mPositionFX, shape1.mBoundingRadiusFX, startIdx1, M_axis);
+        if (depthFX == Integer.MIN_VALUE)
+        {
+            return null;
+        }
+        M_axis.turnRight();
+
+        if ( (face == Landscape.FACE_NONE && ! b1.mPositionFX.leftOf(start, end))
+           || face == Landscape.FACE_LEFT )
+        {
+            M_axis.mult(-1);
+        }
 
         M_separationDistanceFX = Integer.MIN_VALUE;
-        long depthFX = 0;
         // test separation axis
         //the (incorrect) length of 1 is passed in order to avoid double calculation
         //In the projection direction of the axis, start and end are equal
