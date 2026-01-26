@@ -1,7 +1,5 @@
 package at.emini.physics2D;
 
-import java.util.Arrays;                            //#NoJ2ME
-
 import at.emini.physics2D.util.FXVector;
 import at.emini.physics2D.util.PhysicsFileReader;    //#NoBasic
 
@@ -253,7 +251,7 @@ public class Landscape
     protected final void initCollision()
     {
         mCurrentIndex = 0;
-        Arrays.fill(mCurrentOpen, 0);     //#NoJ2ME   mCurrentOpen = new int[M_MAX_CHECK_SEGMENTS];
+        mCurrentOpen = new int[M_MAX_CHECK_SEGMENTS];
         mOpenCheckSize = 0;
         mOpenCnt = 0;
     }

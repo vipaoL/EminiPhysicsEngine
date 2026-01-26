@@ -697,29 +697,4 @@ public class FXVector
             return (yFX + FXUtil.ONE_FX - 1) >> FXUtil.DECIMAL;   //#FX2F return (int) yFX;
     }
 
-    //debug methods                                                                 //#NoJ2ME
-    public float xAsFloat()                                                         //#NoJ2ME
-    {                                                                               //#NoJ2ME
-        return (float) (xFX) / (1 << FXUtil.DECIMAL);                               //#NoJ2ME
-    }                                                                               //#NoJ2ME
-
-    public float yAsFloat()                                                         //#NoJ2ME
-    {                                                                               //#NoJ2ME
-        return (float) (yFX) / (1 << FXUtil.DECIMAL);                               //#NoJ2ME
-    }                                                                               //#NoJ2ME
-
-    public void dumpToConsole()                                                     //#NoJ2ME
-    {                                                                               //#NoJ2ME
-        System.out.print("("+ xAsFloat() + ", " + yAsFloat()+ ")");                 //#NoJ2ME
-    }                                                                               //#NoJ2ME
-
-    public void dumpToConsole(String arg)                                           //#NoJ2ME
-    {                                                                               //#NoJ2ME
-        System.out.print("("+ xAsFloat() + ", " + yAsFloat()+ ")" + arg);           //#NoJ2ME
-    }                                                                               //#NoJ2ME
-
-    public void dumpToConsole(String arg1, String arg2)                             //#NoJ2ME
-    {                                                                               //#NoJ2ME
-        System.out.print(arg1 + "("+ xAsFloat() + ", " + yAsFloat()+ ")" + arg2);   //#NoJ2ME
-    }                                                                               //#NoJ2ME
 }

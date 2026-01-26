@@ -1,8 +1,5 @@
 package at.emini.physics2D.util;
 
-import java.io.File;                    //#NoJ2ME
-import java.io.FileInputStream;         //#NoJ2ME
-import java.io.FileNotFoundException;   //#NoJ2ME
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -34,20 +31,6 @@ public class PhysicsFileReader
         mStream = getClass().getResourceAsStream( name );
         readHeader();
     }
-
-    /**
-     * Constructor using a File.
-     * @param file the file containing the data stream.
-     */
-    public PhysicsFileReader( File file )               //#NoJ2ME
-    {                                                   //#NoJ2ME
-        try {                                           //#NoJ2ME
-            mStream = new FileInputStream(file);         //#NoJ2ME
-            readHeader();                               //#NoJ2ME
-        } catch (FileNotFoundException e) {             //#NoJ2ME
-            e.printStackTrace();                        //#NoJ2ME
-        }                                               //#NoJ2ME
-    }                                                   //#NoJ2ME
 
     /**
      * COnstructor using an input stream.

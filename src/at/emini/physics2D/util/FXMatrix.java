@@ -204,18 +204,4 @@ public class FXMatrix
         return Math.max(Math.abs(mCol1xFX) + Math.abs(mCol1yFX), Math.abs(mCol2xFX) + Math.abs(mCol2yFX));
     }
 
-
-    /**
-     * Prints the matrix to the console.
-     * @param arg string to append
-     */
-    public void dumpToConsole(String arg)                                              //#NoJ2ME
-    {                                                                                  //#NoJ2ME
-        System.out.print("(" + ((float) (mCol1xFX) / (1 << (mPrecision))) + ", "      //#NoJ2ME
-                             + ((float) (mCol1yFX) / (1 << (mPrecision))) + ")( "     //#NoJ2ME
-                             + ((float) (mCol2xFX) / (1 << (mPrecision))) + ", "      //#NoJ2ME
-                             + ((float) (mCol2yFX) / (1 << (mPrecision)))             //#NoJ2ME
-                             + ")" + arg);                                             //#NoJ2ME
-    }                                                                                  //#NoJ2ME
-
 }
