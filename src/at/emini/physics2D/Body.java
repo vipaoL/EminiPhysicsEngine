@@ -788,7 +788,7 @@ public class Body
         mRotationMatrix.setRotationMatrix(mRotation2FX);
         mVerticesUpToDate = false;
         mAxesUpToDate = false;
-
+        mIsResting = false;
     }
 
     /**
@@ -1187,6 +1187,7 @@ public class Body
     public void setDynamic(boolean dynamic)
     {
         this.mDynamic = dynamic;
+        this.mIsResting = !dynamic;
     }
 
     /**
