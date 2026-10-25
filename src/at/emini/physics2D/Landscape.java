@@ -251,7 +251,6 @@ public class Landscape
     protected final void initCollision()
     {
         mCurrentIndex = 0;
-        mCurrentOpen = new int[M_MAX_CHECK_SEGMENTS];
         mOpenCheckSize = 0;
         mOpenCnt = 0;
     }

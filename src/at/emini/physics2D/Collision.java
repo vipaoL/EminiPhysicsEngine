@@ -394,7 +394,7 @@ public class Collision
             }
         }
 
-        M_tmp2.assign(b1.getAbsoluePoint(b1.mShape.mCcentroid));     //center of mass body 2
+        b1.getAbsoluePoint(b1.mShape.mCcentroid, M_tmp2);     //center of mass body 2
         M_b1b2.assignDiff(M_tmp1, M_tmp2);
         if (M_separationAxis.dotFX(M_b1b2) > 0)
         {
@@ -583,8 +583,8 @@ public class Collision
 
 
         //determine contacts based on the (turned) separation axis (= face normal)
-        M_tmp1.assign(b1.getAbsoluePoint(shape1.mCcentroid));     //center of mass body 1
-        M_tmp2.assign(b2.getAbsoluePoint(shape2.mCcentroid));     //center of mass body 2
+        b1.getAbsoluePoint(shape1.mCcentroid, M_tmp1);     //center of mass body 1
+        b2.getAbsoluePoint(shape2.mCcentroid, M_tmp2);     //center of mass body 2
         M_b1b2.assignDiff(M_tmp2, M_tmp1);
         if (M_separationAxis.dotFX(M_b1b2) > 0)
         {
@@ -755,8 +755,8 @@ public class Collision
         }
 
         //determine contacts based on the (turned) separation axis (= face normal)
-        M_tmp1.assign(b1.getAbsoluePoint(shape1.mCcentroid));     //center of mass body 1
-        M_tmp2.assign(b2.getAbsoluePoint(shape2.mCcentroid));     //center of mass body 2
+        b1.getAbsoluePoint(shape1.mCcentroid, M_tmp1);     //center of mass body 1
+        b2.getAbsoluePoint(shape2.mCcentroid, M_tmp2);     //center of mass body 2
         M_b1b2.assignDiff(M_tmp2, M_tmp1);
         if (M_separationAxis.dotFX(M_b1b2) > 0)
         {
@@ -996,7 +996,7 @@ public class Collision
                 M_tmp1.assign(start);     //center
                 M_tmp1.add(end);
                 M_tmp1.divideBy(2);
-                M_tmp2.assign(b1.getAbsoluePoint(shape1.mCcentroid));     //center of mass body 1
+                b1.getAbsoluePoint(shape1.mCcentroid, M_tmp2);     //center of mass body 1
                 M_b1b2.assignDiff(M_tmp1, M_tmp2);
                 if (M_separationAxis.dotFX(M_b1b2) > 0)
                 {
